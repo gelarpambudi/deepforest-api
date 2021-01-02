@@ -4,6 +4,9 @@ from deepforest import deepforest
 from deepforest import get_data
 #from app import model
 
+model = deepforest.deepforest()
+model.use_release()
+
 def predict(input_image):
     bounding_boxes = model.predict_tile(
                         image_path=input_image, 

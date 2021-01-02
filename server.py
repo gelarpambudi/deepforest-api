@@ -1,6 +1,7 @@
 import os
 from flask import request, jsonify, make_response
 from werkzeug.utils import secure_filename
+from deepforest import deepforest   
 from app import app
 from predict_deepforest import predict
 
@@ -13,6 +14,4 @@ def POST_handler():
         return jsonify(results)
 
 if __name__ == "__main__":
-    model = deepforest.deepforest()
-    model.use_release()
     app.run(debug = True, host='0.0.0.0', port='5555')
