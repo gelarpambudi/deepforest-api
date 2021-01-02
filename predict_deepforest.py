@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from deepforest import deepforest
 from deepforest import get_data
-from app import model
+#from app import model
 
 def predict(input_image):
     bounding_boxes = model.predict_tile(
@@ -22,5 +22,4 @@ def get_center_coordinate(xmin, xmax, ymin, ymax):
 
 def add_to_df(x_center, y_center):
     return ...
-
-def 
+ 

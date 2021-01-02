@@ -1,5 +1,5 @@
 flask
-werkezeug
+Werkzeug
 pandas
 deepforest
 PyYAML
