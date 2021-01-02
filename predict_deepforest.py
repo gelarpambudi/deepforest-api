@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import cv2 as cv
 from deepforest import deepforest
 from deepforest import get_data
 #from app import model
@@ -8,8 +9,9 @@ model = deepforest.deepforest()
 model.use_release()
 
 def predict(input_image):
+    img = cv.imdecode(np.fromstring(input_image, np.uint8), cv.IMREAD_UNCHANGED)
     bounding_boxes = model.predict_tile(
-                        image_path=input_image, 
+                        image_path=img, 
                         show=False, 
                         return_plot = False,
                         patch_overlap=0.3, 
