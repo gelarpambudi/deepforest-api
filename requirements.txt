@@ -1,0 +1,5 @@
+flask
+werkezeug
+pandas
+deepforest
+PyYAML
