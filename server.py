@@ -1,6 +1,4 @@
-import os
 from flask import request, jsonify, make_response
-from werkzeug.utils import secure_filename
 from deepforest import deepforest   
 from app import app
 from predict_deepforest import predict

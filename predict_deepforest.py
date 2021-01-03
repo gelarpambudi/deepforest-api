@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import cv2 as cv
+import os
 from werkzeug.utils import secure_filename
 from deepforest import deepforest
 from deepforest import get_data
