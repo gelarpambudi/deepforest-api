@@ -13,7 +13,7 @@ model.use_release()
 def predict(input_image):
     img_path = save_image(input_image)
     bounding_boxes = model.predict_tile(
-                        image_path=img_path, 
+                        raster_path=img_path, 
                         show=False, 
                         return_plot = False,
                         patch_overlap=0.3, 
