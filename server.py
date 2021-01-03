@@ -1,7 +1,7 @@
 from flask import request, jsonify, make_response
-from deep_forest import predict_deepforest   
 from app import app
-from predict_deepforest import predict
+from deep_forest import predict_deepforest   
+
 
 @app.route("/api/predict-deepforest", methods=["POST"])
 def POST_handler():
