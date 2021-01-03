@@ -7,9 +7,6 @@ from deepforest import deepforest
 from deepforest import get_data
 from app import app
 
-model = deepforest.deepforest()
-model.use_release()
-
 def predict(input_image):
     img_path = save_image(input_image)
     bounding_boxes = model.predict_tile(
