@@ -1,5 +1,5 @@
 from flask import request, jsonify, make_response
-from deepforest import deepforest   
+from deep_forest import predict_deepforest   
 from app import app
 from predict_deepforest import predict
 
@@ -7,7 +7,7 @@ from predict_deepforest import predict
 def POST_handler():
     if request.method == "POST" :
         input_image = request.files['image']
-        results = predict(input_image)
+        results = predict_deepforest.predict(input_image)
         print(type(results))
         return jsonify(type = type(results))
 
