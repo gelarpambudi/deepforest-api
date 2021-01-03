@@ -3,15 +3,15 @@ import pandas as pd
 import cv2 as cv
 from deepforest import deepforest
 from deepforest import get_data
-#from app import model
+from app import app
 
 model = deepforest.deepforest()
 model.use_release()
 
 def predict(input_image):
-    img = cv.imdecode(np.fromstring(input_image, np.uint8), cv.IMREAD_UNCHANGED)
+    img_path = save_image(input_image)
     bounding_boxes = model.predict_tile(
-                        image_path=img, 
+                        image_path=img_path, 
                         show=False, 
                         return_plot = False,
                         patch_overlap=0.3, 
@@ -27,4 +27,9 @@ def get_center_coordinate(xmin, xmax, ymin, ymax):
 
 def add_to_df(x_center, y_center):
     return ...
+
+def save_image(img_file):
+    filename = secure_filename(img_file.filename)
+    img_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    return os.path.join(app.config['UPLOAD_FOLDER'], filename)
  
