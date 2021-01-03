@@ -12,8 +12,7 @@ def predict(input_image):
     img_path = save_image(input_image)
     bounding_boxes = model.predict_tile(
                         raster_path=img_path, 
-                        show=False, 
-                        return_plot = False,
+                        return_plot=False,
                         patch_overlap=0.3, 
                         iou_threshold=0.2, 
                         patch_size=700
