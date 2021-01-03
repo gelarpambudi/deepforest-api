@@ -6,7 +6,6 @@ from werkzeug.utils import secure_filename
 from deepforest import deepforest
 from deepforest import get_data
 from app import app
-from deep_forest import model
 
 def predict(input_image):
     img_path = save_image(input_image)
