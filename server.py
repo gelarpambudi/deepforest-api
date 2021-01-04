@@ -1,5 +1,5 @@
 import tensorflow as tf
-from flask import request, jsonify, make_response
+from flask import request, jsonify, make_response, Response
 from app import app
 from predict_deepforest import load_model, predict   
 
@@ -14,7 +14,7 @@ def POST_handler():
             input_image = request.files['image']
             results = predict(input_image, model)
             print(type(results))
-            return jsonify(results)
+            return Response(results, mimetype='application/json')
 
 
 if __name__ == "__main__":
