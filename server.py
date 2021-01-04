@@ -14,7 +14,7 @@ def POST_handler():
             input_image = request.files['image']
             results = predict(input_image, model)
             print(type(results))
-            return jsonify(type = type(results))
+            return jsonify(results)
 
 
 if __name__ == "__main__":

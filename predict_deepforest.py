@@ -21,7 +21,7 @@ def predict(input_image, model):
                         iou_threshold=0.2, 
                         patch_size=700
                     )
-    return bounding_boxes
+    return bounding_boxes.to_json(orient='index')
 
 def get_center_coordinate(xmin, xmax, ymin, ymax):
     xcenter = (xmin + xmax) * 0.5
