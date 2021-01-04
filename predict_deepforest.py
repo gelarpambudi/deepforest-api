@@ -6,11 +6,11 @@ from werkzeug.utils import secure_filename
 from deepforest import deepforest
 from deepforest import get_data
 from app import app
-from deep_forest import model
+from deepforest_api import model
 
 def predict(input_image):
     img_path = save_image(input_image)
-    bounding_boxes = model.predict_tile(
+    bounding_boxes = model.predict_tile(    
                         raster_path=img_path, 
                         return_plot=False,
                         patch_overlap=0.3, 
