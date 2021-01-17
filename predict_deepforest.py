@@ -25,6 +25,8 @@ def predict(input_image, model):
     bounding_boxes["xcenter"] = get_x_center(bounding_boxes["xmin"], bounding_boxes["xmax"])
     bounding_boxes["ycenter"] = get_y_center(bounding_boxes["ymin"], bounding_boxes["ymax"])
 
+    os.remove(input_image)
+
     return bounding_boxes.to_json(orient='index')
 
 def get_x_center(xmin, xmax):
