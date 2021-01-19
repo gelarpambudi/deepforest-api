@@ -3,5 +3,5 @@ Werkzeug
 pandas
 deepforest
 PyYAML
-tensorflow==1.14.0
-keras==2.2.5
+#tensorflow==1.14.0
+#keras==2.2.5
