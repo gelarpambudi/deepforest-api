@@ -37,6 +37,12 @@ def get_y_center(ymin, ymax):
 
 def save_image(img_file):
     filename = secure_filename(img_file.filename)
-    img_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    return str(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    img_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    img_file.save(img_path)
+
+    img = cv.imread(img_path)
+    img = img[:,:,:3]
+    cv.imwrite(img_path, img)
+
+    return img_path
  
