@@ -13,7 +13,7 @@ def POST_handler():
         if request.method == "POST" :
             input_image = request.files['image']
             patch_size = request.form['patch_size']
-            results = predict(input_image, model)
+            results = predict(input_image, model, patch_size)
             print(type(results))
             return Response(results, mimetype='application/json')
 
