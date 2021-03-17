@@ -12,14 +12,14 @@ def load_model():
     model.use_release()
     return model
 
-def predict(input_image, model):
+def predict(input_image, model, patch=700):
     img_path = save_image(input_image)
     bounding_boxes = model.predict_tile(    
                         raster_path=img_path, 
                         return_plot=False,
                         patch_overlap=0.3, 
                         iou_threshold=0.2, 
-                        patch_size=700
+                        patch_size=patch
                     )
 
     bounding_boxes["xcenter"] = get_x_center(bounding_boxes["xmin"], bounding_boxes["xmax"])
@@ -38,5 +38,5 @@ def get_y_center(ymin, ymax):
 def save_image(img_file):
     filename = secure_filename(img_file.filename)
     img_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    return os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    return str(os.path.join(app.config['UPLOAD_FOLDER'], filename))
  
