@@ -8,8 +8,11 @@ from deepforest import get_data
 from app import app
 
 def load_model():
-    model = deepforest.deepforest()
-    model.use_release()
+    if os.path.isfile("deepforest-model.h5"):
+        model = deepforest.deepforest(saved_model="deepforest-model.h5")
+    else:
+        model = deepforest.deepforest()
+        model.use_release()
     return model
 
 def predict(input_image, model, patch=700):
