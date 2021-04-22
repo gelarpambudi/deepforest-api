@@ -10,9 +10,11 @@ from app import app
 def load_model():
     try:
         model = deepforest.deepforest(saved_model="deepforest-model.h5")
+        print("Trained Model loaded")
     except:
         model = deepforest.deepforest()
         model.use_release()
+        print("Prebuilt Model loaded")
     return model
 
 def predict(input_image, model, patch=700):
