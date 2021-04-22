@@ -8,9 +8,9 @@ from deepforest import get_data
 from app import app
 
 def load_model():
-    if os.path.isfile("deepforest-model.h5"):
+    try:
         model = deepforest.deepforest(saved_model="deepforest-model.h5")
-    else:
+    except:
         model = deepforest.deepforest()
         model.use_release()
     return model
